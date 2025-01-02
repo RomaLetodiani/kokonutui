@@ -19,7 +19,10 @@ export function HeroSection() {
             <div className="relative">
                 <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
                     A collection of modern, interactive, customizable UI
-                    components built. Quick and easy to use.
+                    components.
+                </p>
+                <p className="text-base sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
+                    Quick and easy to use.
                     <Arrow25 className="inline-block ml-1 w-6 h-6 align-middle mt-1" />
                 </p>
             </div>

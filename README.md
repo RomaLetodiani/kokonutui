@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://kokonut.dev" target="_blank">
+  <a href="https://kokonutui.com" target="_blank">
     <picture>
       <source media="(prefers-color-scheme: light)" srcset="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/logo-text-black-5nhu7g0JeNUhIuSzJyMXc11GATRT5V.png">
       <source media="(prefers-color-scheme: dark)" srcset="https://ferf1mheo22r9ira.public.blob.vercel-storage.com/logo-text-white-ny4myAjOAftDwH1fsmwyA265oUcecd.png">
@@ -16,7 +16,7 @@ This is not a library, it's a collection of components / hooks that you can copy
 
 ## Getting Started
 
-Please check [kokonut.dev/docs](https://kokonut.dev/docs)
+Please check [kokonutui.com/docs](https://kokonutui.com/docs)
 
 ## Demo
 

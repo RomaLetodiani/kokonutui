@@ -8,6 +8,8 @@ import Btn07 from "@/components/kokonutui/btn-07";
 import Btn08 from "@/components/kokonutui/btn-08";
 import Btn09 from "@/components/kokonutui/btn-09";
 import Btn10 from "@/components/kokonutui/btn-10";
+import Btn11 from "@/components/kokonutui/btn-11";
+
 import { createComponentPage } from "@/components/page-builder";
 import { Command } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -102,6 +104,12 @@ const BUTTONS_CONFIG: PageConfig = {
             title: "Shadow",
             component: <Btn10 />,
             fileName: "btn-10.tsx",
+        },
+        {
+            id: 11,
+            title: "Gradient underline",
+            component: <Btn11 />,
+            fileName: "btn-11.tsx",
         },
     ],
 };

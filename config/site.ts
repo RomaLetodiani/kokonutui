@@ -1,7 +1,7 @@
 export const siteConfig = {
     name: "KokonutUI",
-    url: "https://kokonut.dev",
-    ogImage: "https://kokonut.dev/og.jpg",
+    url: "https://kokonutui.com",
+    ogImage: "https://kokonutui.com/og.jpg",
     description:
         "Copy, Paste, Customize. A collection of modern, interactive, customizable UI components. Quick and easy to use.",
     links: {

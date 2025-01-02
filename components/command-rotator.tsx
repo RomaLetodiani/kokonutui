@@ -43,7 +43,7 @@ export function CommandRotator({ prePath }: { prePath: string }) {
                     {prePath}
                 </span>
                 <span className="text-orange-600 dark:text-orange-300">
-                    r/my-component.json
+                    /r/my-component.json
                 </span>
             </div>
         </div>

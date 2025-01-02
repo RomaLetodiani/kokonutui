@@ -4,6 +4,7 @@ import Pricing_02 from "@/components/kokonutui/pricing-02";
 import Pricing_03 from "@/components/kokonutui/pricing-03";
 import Pricing_04 from "@/components/kokonutui/pricing-04";
 import type { PageConfig } from "@/types/component-page";
+import Pricing_05 from "@/components/kokonutui/pricing-05";
 
 const PRICING_CONFIG: PageConfig = {
     title: "Pricing",
@@ -33,9 +34,15 @@ const PRICING_CONFIG: PageConfig = {
         },
         {
             id: 4,
-            title: "Fancy",
+            title: "Button up",
             component: <Pricing_04 />,
             fileName: "pricing-04.tsx",
+        },
+        {
+            id: 5,
+            title: "Gamified",
+            component: <Pricing_05 />,
+            fileName: "pricing-05.tsx",
         },
     ],
 };

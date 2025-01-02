@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Sparkles, Zap, ArrowRight } from "lucide-react";
+import { Check, Sparkles, Zap, ArrowRight, ArrowDownToDot } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Feature {
@@ -33,11 +33,10 @@ const defaultTiers: PricingTier[] = [
             yearly: 144,
         },
         description: "Perfect for individuals and small projects",
-        badge: "Popular",
         icon: (
             <div className="relative">
-                <div className="absolute inset-0 bg-emerald-500/20 dark:bg-emerald-500/10 blur-xl rounded-full animate-pulse" />
-                <Zap className="w-6 h-6 relative z-10 text-emerald-600 dark:text-emerald-400 animate-[bounce_2s_ease-in-out_infinite]" />
+                <div className="absolute inset-0 bg-gradient-to-r from-gray-500/30 to-gray-500/30 blur-2xl rounded-full" />
+                <Zap className="w-7 h-7 relative z-10 text-gray-500 dark:text-gray-400 animate-[float_3s_ease-in-out_infinite]" />
             </div>
         ),
         features: [
@@ -71,11 +70,10 @@ const defaultTiers: PricingTier[] = [
         },
         description: "Ideal for growing teams and businesses",
         highlight: true,
-        badge: "Best Value",
+        badge: "Most Popular",
         icon: (
             <div className="relative">
-                <div className="absolute inset-0 bg-violet-500/20 dark:bg-violet-500/10 blur-xl rounded-full animate-pulse" />
-                <Sparkles className="w-6 h-6 relative z-10 text-violet-600 dark:text-violet-400 animate-[pulse_2s_ease-in-out_infinite]" />
+                <ArrowDownToDot className="w-7 h-7 relative z-10" />
             </div>
         ),
         features: [
@@ -111,18 +109,20 @@ export default function Pricing_01({
     const [isYearly, setIsYearly] = useState(false);
 
     return (
-        <div className="w-full max-w-4xl sm:mx-auto">
-            <div className="flex justify-center mb-8">
-                <div className="inline-flex items-center p-1 bg-zinc-100 dark:bg-zinc-800/50 rounded-full">
+        <div className="w-full max-w-5xl mx-auto px-4">
+            <div className="flex flex-col items-center gap-4 mb-12">
+                <h2 className="text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+                    Simple, transparent pricing
+                </h2>
+                <div className="inline-flex items-center p-1.5 bg-white dark:bg-zinc-800/50 rounded-full border border-zinc-200 dark:border-zinc-700 shadow-sm">
                     {["Monthly", "Yearly"].map((period) => (
                         <button
                             key={period}
-                            type="button"
                             onClick={() => setIsYearly(period === "Yearly")}
                             className={cn(
-                                "px-6 py-2 text-sm font-medium rounded-full transition-all duration-200",
+                                "px-8 py-2.5 text-sm font-medium rounded-full transition-all duration-300",
                                 (period === "Yearly") === isYearly
-                                    ? "bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-sm"
+                                    ? "bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-lg"
                                     : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                             )}
                         >
@@ -137,26 +137,26 @@ export default function Pricing_01({
                     <div
                         key={tier.name}
                         className={cn(
-                            "relative group",
-                            "rounded-2xl border transition-all duration-300",
+                            "relative group backdrop-blur-sm",
+                            "rounded-3xl transition-all duration-300",
+                            "flex flex-col",
                             tier.highlight
-                                ? "border-violet-500/20 dark:border-violet-400/20 shadow-xl"
-                                : "border-zinc-200 dark:border-zinc-800 shadow-sm",
-                            "hover:-translate-y-1 hover:shadow-lg",
+                                ? "bg-gradient-to-b from-zinc-100/80 to-transparent dark:from-zinc-400/[0.15]"
+                                : "bg-white dark:bg-zinc-800/50",
+                            "border",
                             tier.highlight
-                                ? "hover:border-violet-500/30 dark:hover:border-violet-400/30"
-                                : "hover:border-zinc-300 dark:hover:border-zinc-700"
+                                ? "border-zinc-400/50 dark:border-zinc-400/20 shadow-xl"
+                                : "border-zinc-200 dark:border-zinc-700 shadow-md",
+                            "hover:translate-y-0 hover:shadow-lg"
                         )}
                     >
-                        {tier.badge && (
-                            <div className="absolute -top-3 left-4">
+                        {tier.badge && tier.highlight && (
+                            <div className="absolute -top-4 left-6">
                                 <Badge
                                     className={cn(
-                                        "px-3 py-1",
-                                        tier.highlight
-                                            ? "bg-gradient-to-r from-violet-500 to-indigo-500"
-                                            : "bg-gradient-to-r from-zinc-500 to-zinc-600",
-                                        "text-white border-none shadow-lg"
+                                        "px-4 py-1.5 text-sm font-medium",
+                                        "bg-zinc-900 dark:bg-zinc-100",
+                                        "text-white dark:text-zinc-900 border-none shadow-lg"
                                     )}
                                 >
                                     {tier.badge}
@@ -164,13 +164,13 @@ export default function Pricing_01({
                             </div>
                         )}
 
-                        <div className="p-4 sm:p-6">
+                        <div className="p-8 flex-1">
                             <div className="flex items-center justify-between mb-4">
                                 <div
                                     className={cn(
                                         "p-3 rounded-xl",
                                         tier.highlight
-                                            ? "bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400"
+                                            ? "bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100"
                                             : "bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400"
                                     )}
                                 >
@@ -227,18 +227,27 @@ export default function Pricing_01({
                             </div>
                         </div>
 
-                        <div className="p-6 pt-0">
+                        <div className="p-8 pt-0 mt-auto">
                             <Button
                                 className={cn(
-                                    "w-full group relative overflow-hidden transition-all duration-300",
+                                    "w-full relative transition-all duration-300",
                                     tier.highlight
-                                        ? "bg-gradient-to-r from-violet-500 to-indigo-500 hover:from-violet-600 hover:to-indigo-600 text-white shadow-lg shadow-violet-500/25"
-                                        : "bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900"
+                                        ? "h-12 bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-300 text-white dark:text-zinc-900 shadow-[0_1px_15px_rgba(0,0,0,0.1)] hover:shadow-[0_1px_20px_rgba(0,0,0,0.15)] font-semibold text-base"
+                                        : "h-12 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm hover:shadow-md text-sm font-medium"
                                 )}
                             >
                                 <span className="relative z-10 flex items-center justify-center gap-2">
-                                    Get started
-                                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                    {tier.highlight ? (
+                                        <>
+                                            Buy now
+                                            <ArrowRight className="w-4 h-4" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Get started
+                                            <ArrowRight className="w-4 h-4" />
+                                        </>
+                                    )}
                                 </span>
                             </Button>
                         </div>
